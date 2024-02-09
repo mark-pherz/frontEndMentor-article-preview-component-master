@@ -1,0 +1,217 @@
+:root {
+  --dark-grayish-blue: #48556a;
+  --desaturated-dark-blue: hsl(214, 17%, 51%);
+  --grayish-blue: hsl(212, 23%, 69%);
+  --light-grayish-blue: rgb(236, 242, 248);
+
+  --body-font-size: 13px;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("./fonts/Manrope-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Manrope";
+  src: url("./fonts/Manrope-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+html {
+  background-color: var(--light-grayish-blue);
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  font-size: 13px;
+}
+
+#card {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
+  max-width: 340px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 20px 0;
+  position: relative;
+}
+
+.card-section.picture img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card-section.content {
+  padding: 30px 30px 0px 30px;
+}
+
+.card-section.content h2 {
+  font-family: "Manrope";
+  font-weight: 700;
+  font-style: normal;
+  color: var(--dark-grayish-blue);
+  font-size: 1.5em;
+  color: var(--dark-grayish-blue);
+  margin-bottom: 0.5em;
+}
+
+.card-section.content p {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  color: var(--grayish-blue);
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+.card-section.contacts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px 30px 20px 30px;
+  height: auto;
+  position: relative;
+}
+
+.pop-up {
+  position: absolute;
+  background-color: var(--dark-grayish-blue);
+  visibility: hidden;
+  bottom: 0;
+  width: 100%;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.pop-up span {
+  letter-spacing: 0.4em;
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  color: hsl(213, 32%, 87%);
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.contact-info {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.contact-info p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.contact-info p:nth-child(1) {
+  font-family: "Manrope";
+  font-weight: 700;
+  font-style: normal;
+  color: var(--dark-grayish-blue);
+}
+
+.contact-info p:nth-child(2) {
+  font-family: "Manrope";
+  font-weight: 500;
+  font-style: normal;
+  color: var(--grayish-blue);
+}
+
+.share-icon-wrapper {
+  margin-left: auto;
+  display: inline-flex;
+  background-color: hsl(214, 53%, 91%);
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.share-icon-wrapper:hover .share-icon {
+  filter: brightness(0) invert(1);
+}
+
+.share-icon {
+  width: 15px;
+  height: auto;
+}
+
+.inverted-icon {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  #card {
+    grid-template-columns: 3fr 4fr;
+    grid-template-rows: auto;
+    max-width: 740px;
+    gap: 0;
+    overflow: visible;
+  }
+
+  .card-section.picture {
+    grid-row: 1 / span 2;
+  }
+
+  .card-section.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .card-section.content,
+  .card-section.contacts {
+    grid-column: 2;
+  }
+  .pop-up {
+    right: -84px;
+    width: 260px;
+    bottom: 80px;
+    height: 60px;
+    border-radius: 12px;
+    justify-content: space-around;
+  }
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-style: solid;
+    border-width: 20px 12px 0 12px;
+    border-color: #48556a transparent transparent transparent;
+    transform: rotate(0deg);
+    position: absolute;
+    bottom: -15px;
+  }
+}
